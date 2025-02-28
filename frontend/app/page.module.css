@@ -266,3 +266,17 @@
     margin: 0 10px;
     cursor: pointer;
 }
+.getStartedButton {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.getStartedButton:hover {
+  background-color: #0056b3;
+}

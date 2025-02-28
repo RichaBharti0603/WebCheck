@@ -16,12 +16,12 @@ export default function Home() {
           <h2>WebCheck</h2>
         </div>
         <nav className={styles.nav}>
-          <Link href="/">Home</Link>
-          <Link href="/report">Website Report</Link>
-          <Link href="/improve">Improve Your Website</Link>
-          <Link href="/alerts">Alerts & Updates</Link>
-          <Link href="/support">Support & Help</Link>
-          <Link href="/signup" className={styles.signupButton}>Get Started</Link>
+          <Link href="/" legacyBehavior><a>Dashboard</a></Link>
+          <Link href="/report" legacyBehavior><a>Website Report</a></Link>
+          <Link href="/improve" legacyBehavior><a>Improve Your Website</a></Link>
+          <Link href="/alerts" legacyBehavior><a>Alerts & Updates</a></Link>
+          <Link href="/support" legacyBehavior><a>Support & Help</a></Link>
+          <Link href="/signup" legacyBehavior><a className={styles.signupButton}>Get Started</a></Link>
         </nav>
       </header>
 
@@ -37,14 +37,18 @@ export default function Home() {
           <p className={styles.description}>
             Get real-time insights, enhance SEO, and improve performance with our AI-powered analysis.
           </p>
-          <Link href="/signup">
-            <motion.button 
-              className={styles.ctaButton}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started
-            </motion.button>
+
+          {/* ✅ FIXED GET STARTED BUTTON WITH legacyBehavior */}
+          <Link href="/signup" legacyBehavior>
+            <a>
+              <motion.button 
+                className={styles.ctaButton}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started
+              </motion.button>
+            </a>
           </Link>
         </motion.div>
 
@@ -54,7 +58,7 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }} 
           transition={{ duration: 1 }}
         >
-          <Image src="/LandingPagePhoto.jpg" alt="Website Analysis" width={250} height={250} />
+          <Image src="/LandingPagePhoto.jpg" alt="Website Analysis" width={300} height={300} />
         </motion.div>
       </section>
 
@@ -83,23 +87,17 @@ export default function Home() {
 
       {/* 🚀 Footer Section */}
       <footer className={styles.footer}>
-        <div className={styles.footerLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/report">Website Report</Link>
-          <Link href="/improve">Improve Your Website</Link>
-          <Link href="/alerts">Alerts & Updates</Link>
-          <Link href="/support">Support & Help</Link>
-        </div>
+        
         <p>© 2025 WebCheck. All rights reserved.</p>
         <div className={styles.socialLinks}>
-          <Link href="https://twitter.com/yourhandle">
-            <Image src="/Twitter.jpg" alt="Twitter" width={30} height={30} />
+          <Link href="https://twitter.com/yourhandle" legacyBehavior>
+            <a><Image src="/Twitter.jpg" alt="Twitter" width={30} height={30} /></a>
           </Link>
-          <Link href="https://linkedin.com/in/yourprofile">
-            <Image src="/linkeldln.jpg" alt="LinkedIn" width={30} height={30} />
+          <Link href="https://linkedin.com/in/yourprofile" legacyBehavior>
+            <a><Image src="/linkeldln.jpg" alt="LinkedIn" width={30} height={30} /></a>
           </Link>
-          <Link href="https://github.com/yourrepo">
-            <Image src="/Github.jpg" alt="GitHub" width={30} height={30} />
+          <Link href="https://github.com/yourrepo" legacyBehavior>
+            <a><Image src="/Github.jpg" alt="GitHub" width={30} height={30} /></a>
           </Link>
         </div>
       </footer>
