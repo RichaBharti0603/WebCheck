@@ -1,0 +1,31 @@
+# Ignore dependencies
+Frontend/node_modules/
+
+# Ignore build files
+Frontend/.next/
+Frontend/dist/
+Frontend/out/
+
+# Ignore logs
+Frontend/logs/
+Frontend/*.log
+
+# Ignore environment variables
+Frontend/.env
+Frontend/.env.local
+Frontend/.env.development.local
+Frontend/.env.test.local
+Frontend/.env.production.local
+
+# Ignore OS & editor-generated files
+Frontend/.DS_Store
+Frontend/Thumbs.db
+Frontend/.vscode/
+Frontend/.idea/
+
+# Ignore package manager lock files (optional, depending on your workflow)
+Frontend/package-lock.json
+Frontend/yarn.lock
+Frontend/pnpm-lock.yaml
+
+node_modules
