@@ -1,20 +1,43 @@
-import Image from "next/image";
-import "../../styles/auth.css";
+"use client";
+import { useState } from "react";
 
 export default function Login() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert("Login successful!");
+      localStorage.setItem("token", data.token);
+      window.location.href = "/"; // Redirect to home
+    } else {
+      setError(data.error);
+    }
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-card">
         <h2>Login</h2>
-        <Image src="/Login.jpg" alt="Login" width={200} height={200} />
-        <form>
-          <input type="email" placeholder="Enter your email" required />
-          <input type="password" placeholder="Enter your password" required />
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
           <button type="submit">Log In</button>
         </form>
-        <p className="auth-footer">
-          Dont have an account? <a href="/signup">Sign Up</a>
-        </p>
       </div>
     </div>
   );
