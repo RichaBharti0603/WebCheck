@@ -1,0 +1,6 @@
+node_modules
+pyenv.config
+backend/node_modules
+backend/venv/pyvenv.cfg
+venv
+

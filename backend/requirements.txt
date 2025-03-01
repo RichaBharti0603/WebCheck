@@ -1,0 +1,6 @@
+flask
+requests
+scikit-learn
+tensorflow
+beautifulsoup4
+openai
