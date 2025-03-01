@@ -16,7 +16,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]  // Ensures "@/lib/db" works correctly
+      "@/*": ["./*"]  
     },
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
